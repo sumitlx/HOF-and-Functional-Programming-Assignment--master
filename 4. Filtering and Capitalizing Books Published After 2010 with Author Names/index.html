@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Filtering and Capitalization</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 100px;
+  }
+</style>
+</head>
+<body>
+  <h1>Book Filtering and Capitalization</h1>
+  <button onclick="filterAndCapitalize()">Filter and Capitalize</button>
+  <p id="result"></p>
+
+  <script>
+    const books = [
+      { title: 'Book 1', author: 'author 1', year: 2005 },
+      { title: 'Book 2', author: 'author 2', year: 2012 },
+      { title: 'Book 3', author: 'author 3', year: 2009 },
+      { title: 'Book 4', author: 'author 4', year: 2015 },
+      { title: 'Book 5', author: 'author 5', year: 2008 }
+    ];
+
+    function filterAndCapitalize() {
+      const resultElement = document.getElementById('result');
+
+      const filteredAndCapitalized = books
+        .filter(book => book.year >= 2010)
+        .map(book => ({
+          title: book.title,
+          author: book.author.toUpperCase(),
+          year: book.year
+        }));
+
+      resultElement.textContent = JSON.stringify(filteredAndCapitalized, null, 2);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price Conversion</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 100px;
+  }
+</style>
+</head>
+<body>
+  <h1>Price Conversion</h1>
+  <button onclick="convertPrices()">Convert Prices</button>
+  <p id="result"></p>
+
+  <script>
+    const exchangeRate = 80; // 1 USD to 80 INR
+    const items = {
+      item1: 25,   // Price in USD
+      item2: 50,
+      item3: 75
+    };
+
+    function convertPrices() {
+      const resultElement = document.getElementById('result');
+
+      const convertedPrices = Object.keys(items).map(itemName => {
+        const priceInUSD = items[itemName];
+        const priceInRupees = priceInUSD * exchangeRate;
+        return { itemName, priceInRupees };
+      });
+
+      resultElement.textContent = JSON.stringify(convertedPrices, null, 2);
+    }
+  </script>
+</body>
+</html>

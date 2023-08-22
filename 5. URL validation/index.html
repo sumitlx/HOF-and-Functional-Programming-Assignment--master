@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL Validation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 100px;
+  }
+</style>
+</head>
+<body>
+  <h1>URL Validation</h1>
+  <input type="text" id="urlInput" placeholder="Enter a URL">
+  <button onclick="validateURL()">Validate URL</button>
+  <p id="result"></p>
+
+  <script>
+    function validateURL() {
+      const urlInput = document.getElementById('urlInput');
+      const resultElement = document.getElementById('result');
+      
+      const urlPattern = /^(http:\/\/|https:\/\/)[\w\d\-.]+[a-zA-Z]$/;
+      const url = urlInput.value;
+
+      if (urlPattern.test(url)) {
+        resultElement.textContent = 'Valid URL.';
+      } else {
+        resultElement.textContent = 'Invalid URL.';
+      }
+    }
+  </script>
+</body>
+</html>
